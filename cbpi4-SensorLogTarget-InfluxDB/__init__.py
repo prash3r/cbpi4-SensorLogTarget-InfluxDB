@@ -28,7 +28,7 @@ class SensorLogTargetInfluxDB(CBPiExtension):
 
 
     async def run(self):
-        self.listener_ID = self.cbpi.log.add_listener(self.log_data_to_InfluxDB)
+        self.listener_ID = self.cbpi.log.add_sensor_data_listener(self.log_data_to_InfluxDB)
         logger.info("InfluxDB sensor log target listener ID: {}".format(self.listener_ID))
 
         self.influxdb = self.cbpi.config.get("INFLUXDB", "No")
